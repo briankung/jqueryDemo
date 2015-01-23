@@ -31,22 +31,6 @@ body {
 }
 
 /*
-.product-slider ul {
-	width: 100%;
-	height: 128px;
-	list-style: none;
-	padding: 15px;
-	position: relative;
-	overflow: hidden;
-}
-
-.product-slider li {
-	display: inline;
-}
-
-*/
-
-/*
 This is the visible area of you carousel.
 Set a width here to define how much items are visible.
 The width can be either fixed in px or flexible in %.
