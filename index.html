@@ -50,6 +50,8 @@
 
       <div class="hero">
         <img src="images/steve_prefontain.jpg">
+        <img src="images/runners.jpg">
+        <img src="images/kwan.jpg">
       </div>
 
       <div class="product-slider">
@@ -88,21 +90,21 @@
           animation: 'slow'
         });
 
-        var interval = window.setInterval(function(){
+        var slider_interval = window.setInterval(function(){
           $('.product-slider').jcarousel('scroll', '+=1');
         }, 300);
 
         window.setTimeout(function(){
-          window.clearInterval(interval);
+          window.clearInterval(slider_interval);
         }, 2500);
 
         $('span.product-slider-left').click(function() {
-          window.clearInterval(interval);
+          window.clearInterval(slider_interval);
           $('.product-slider').jcarousel('scroll', '-=1');
         });
 
         $('span.product-slider-right').click(function() {
-          window.clearInterval(interval);
+          window.clearInterval(slider_interval);
           $('.product-slider').jcarousel('scroll', '+=1');
         });
       });
