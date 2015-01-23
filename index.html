@@ -53,13 +53,56 @@
         <img src="images/steve_prefontain.jpg">
       </div>
 
+      <div class="product-slider">
+        <span class="glyphicon glyphicon-chevron-left product-slider-left"></span>
+        <ul>
+          <li><img src="images/whey.jpg"></li>
+          <li><img src="images/dumbbells.jpg"></li>
+          <li><img src="images/watch.jpg"></li>
+          <li><img src="images/whey.jpg"></li>
+          <li><img src="images/dumbbells.jpg"></li>
+          <li><img src="images/watch.jpg"></li>
+          <li><img src="images/whey.jpg"></li>
+          <li><img src="images/dumbbells.jpg"></li>
+          <li><img src="images/watch.jpg"></li>
+          <li><img src="images/whey.jpg"></li>
+          <li><img src="images/dumbbells.jpg"></li>
+          <li><img src="images/watch.jpg"></li>
+        </ul>
+        <span class="glyphicon glyphicon-chevron-right product-slider-right"></span>
+      </div>
+
     </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script>
+      $(function() {
+        var interval = window.setInterval(function(){
+          $('.product-slider').jcarousel('scroll', '+=1');
+        }, 300);
+
+        $('.product-slider').jcarousel({
+          list: $('.product-slider > ul'),
+          animation: 'slow'
+        });
+
+        $('span.product-slider-left').click(function() {
+          window.clearInterval(interval);
+          $('.product-slider').jcarousel('scroll', '-=1');
+        });
+
+        $('span.product-slider-right').click(function() {
+          window.clearInterval(interval);
+          $('.product-slider').jcarousel('scroll', '+=1');
+        });
+      });
+    </script>
   </body>
 </html>
