@@ -24,8 +24,16 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="shadow">
+      <div class="modal" style="display: none;">
+      <div class="modal-close">Close</div>
+        <p>Enter your email!</p>
+        <input disabled=disabled placeholder="user@example.com">
+        <button class="btn">Submit</button>
+      </div>
+    </div>
 
+    <div class="container">
       <nav class="navbar navbar-inverse navbar-default">
         <div class="container">
           <div class="navbar-header">
@@ -116,6 +124,14 @@
 
         $('span.product-slider-right').click(function() {
           $('.product-slider').jcarousel('scroll', '+=1');
+        });
+      });
+
+      // Modal popup
+      $(function() {
+        $('.modal').slideDown(1000);
+        $('.modal-close').click(function(){
+          $('.shadow').fadeOut(100);
         });
       });
     </script>
