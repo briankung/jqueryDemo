@@ -84,14 +84,18 @@
 
     <script>
       $(function() {
-        var interval = window.setInterval(function(){
-          $('.product-slider').jcarousel('scroll', '+=1');
-        }, 300);
-
         $('.product-slider').jcarousel({
           list: $('.product-slider > ul'),
           animation: 'slow'
         });
+
+        var interval = window.setInterval(function(){
+          $('.product-slider').jcarousel('scroll', '+=1');
+        }, 300);
+
+        window.setTimeout(function(){
+          window.clearInterval(interval);
+        }, 2500);
 
         $('span.product-slider-left').click(function() {
           window.clearInterval(interval);
