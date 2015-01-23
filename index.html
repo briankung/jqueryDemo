@@ -50,8 +50,8 @@
 
       <div class="hero">
         <img src="images/runner.jpg">
-        <img src="images/runners.jpg">
-        <img src="images/skaters.jpg">
+        <img src="images/runners.jpg" style="display: none;">
+        <img src="images/skaters.jpg" style="display: none;">
       </div>
 
       <div class="product-slider">
@@ -84,27 +84,37 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <script>
+      // Hero image fade in/out
+      $(function() {
+        var images = $('.hero img'), i = 0;
+        window.setInterval(transition,4500);
+
+        function transition() {
+          $(images[i]).fadeOut(1500, function(){
+            if (i+1 < images.length) {
+              i++;
+            } else {
+              i = 0;
+            }
+
+            $(images[i]).fadeIn(1500);
+          });
+        };
+      });
+
+
+      // Product slider default slide rate, timer, and navigation
       $(function() {
         $('.product-slider').jcarousel({
           list: $('.product-slider > ul'),
           animation: 'slow'
         });
 
-        var slider_interval = window.setInterval(function(){
-          $('.product-slider').jcarousel('scroll', '+=1');
-        }, 300);
-
-        window.setTimeout(function(){
-          window.clearInterval(slider_interval);
-        }, 2500);
-
         $('span.product-slider-left').click(function() {
-          window.clearInterval(slider_interval);
           $('.product-slider').jcarousel('scroll', '-=1');
         });
 
         $('span.product-slider-right').click(function() {
-          window.clearInterval(slider_interval);
           $('.product-slider').jcarousel('scroll', '+=1');
         });
       });
